@@ -1,1 +1,41 @@
+#include <stdio.h>
+#include <math.h>
 
+int prime (int number, int i) 
+{
+    if (number%i == 0 || number <= 1) // caso a divisao do numero por i tenha resto 0, ele nao sera primo
+    //    tal que i seja >1 e =! number. 
+    {
+        return 0; 
+    }
+
+    if (number==i || number==2)
+    {
+        return 1; 
+    }
+
+    prime(number,i+1); 
+}
+ 
+
+void loopscan() {
+
+    int number; 
+    scanf("%d",&number); 
+   
+    if (number == -1) 
+        {
+            return; 
+        } 
+    printf ("%d\n",prime(number,2));
+    loopscan(); 
+    
+    
+}
+
+int main ()
+{ 
+    loopscan(); 
+    
+    return 0; 
+}
